@@ -7,6 +7,8 @@ class RestuarantNearYou {
   final int restuarantRating;
   final double restuarantStars;
   final String restuarantDistance;
+  final String restuarantAddress;
+  final String nonRefundableFee;
 
   RestuarantNearYou({
     required this.id,
@@ -15,6 +17,8 @@ class RestuarantNearYou {
     required this.restuarantRating,
     required this.restuarantStars,
     required this.restuarantDistance,
+    this.restuarantAddress = '',
+    this.nonRefundableFee = '',
   });
 }
 
@@ -28,6 +32,8 @@ class RestuarantProvider with ChangeNotifier {
       restuarantRating: 500,
       restuarantStars: 4.5,
       restuarantDistance: '2.5 km',
+      restuarantAddress: '10 Abraham Adesanya St, Eti-Osa.',
+      nonRefundableFee: '₦4,500',
     ),
     RestuarantNearYou(
       id: '2',
@@ -37,6 +43,8 @@ class RestuarantProvider with ChangeNotifier {
       restuarantRating: 23,
       restuarantStars: 5.0,
       restuarantDistance: '3.0 km',
+      restuarantAddress: '456 Elm St, Cityville',
+      nonRefundableFee: '₦4,500',
     ),
     RestuarantNearYou(
       id: '3',
@@ -46,6 +54,8 @@ class RestuarantProvider with ChangeNotifier {
       restuarantRating: 350,
       restuarantStars: 3.5,
       restuarantDistance: '1.5 km',
+      restuarantAddress: '789 Oak St, Cityville',
+      nonRefundableFee: '₦4,500',
     ),
     RestuarantNearYou(
       id: '4',
@@ -55,6 +65,8 @@ class RestuarantProvider with ChangeNotifier {
       restuarantRating: 126,
       restuarantStars: 4.0,
       restuarantDistance: '4.0 km',
+      restuarantAddress: '101 Pine St, Cityville',
+      nonRefundableFee: '₦4,500',
     ),
     RestuarantNearYou(
       id: '5',
@@ -64,6 +76,8 @@ class RestuarantProvider with ChangeNotifier {
       restuarantRating: 500,
       restuarantStars: 4.5,
       restuarantDistance: '2.5 km',
+      restuarantAddress: '123 Main St, Cityville',
+      nonRefundableFee: '₦4,500',
     ),
     RestuarantNearYou(
       id: '6',
@@ -73,11 +87,21 @@ class RestuarantProvider with ChangeNotifier {
       restuarantRating: 500,
       restuarantStars: 4.5,
       restuarantDistance: '2.5 km',
+      restuarantAddress: '123 Main St, Cityville',
+      nonRefundableFee: '₦4,500',
     ),
     // Add more restaurants as needed
   ];
 
   List<RestuarantNearYou> get restuarant {
     return [..._restuarant];
+  }
+
+  String? _selectedRestaurantId;
+  String? get selectedRestaurantId => _selectedRestaurantId;
+  double get nonRefundableFee => 4500.0;
+
+  void selectRestaurant(String id) {
+    _selectedRestaurantId = id;
   }
 }

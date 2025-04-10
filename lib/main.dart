@@ -10,6 +10,8 @@ import './screens/make_order.dart';
 import './screens/make_reservation_screen.dart';
 import './widgets/bottom_nav_layout_wrapper.dart';
 import './screens/food_order_screen.dart';
+import './screens/fill_reservation_details_screen.dart';
+import './screens/complete_order_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         title: 'Bridge app',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue[900]!),
-          primaryColor: Colors.blue[900],
+          primaryColor: Colors.blueAccent[700],
           scaffoldBackgroundColor: Colors.white,
         ),
         home: LoginScreen(),
@@ -41,6 +43,10 @@ class MyApp extends StatelessWidget {
               (context) => const MakeReservationScreen(),
           MakeOrderScreen.routeName: (context) => MakeOrderScreen(),
           FoodOrderScreen.routeName: (context) => FoodOrderScreen(),
+          FillReservationDetailsScreen.routeName:
+              (context) => const FillReservationDetailsScreen(),
+          CompleteOrderScreen.routeName:
+              (context) => const CompleteOrderScreen(),
         },
       ),
     );

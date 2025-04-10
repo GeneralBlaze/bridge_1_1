@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/restaurant_provider.dart';
 import '../widgets/restaurant_widget.dart';
+import '../screens/fill_reservation_details_screen.dart';
 
 class MakeReservationScreen extends StatelessWidget {
   static const String routeName = '/make-reservation';
@@ -82,14 +83,26 @@ class MakeReservationScreen extends StatelessWidget {
                     return Container(
                       height: 220.0,
                       padding: const EdgeInsets.all(10),
-                      child: Restaurant(
-                        rating: restuarants[index].restuarantRating.toString(),
-                        stars: restuarants[index].restuarantStars.toString(),
-                        distance: restuarants[index].restuarantDistance,
-                        image: restuarants[index].restuarantImageUrl,
-                        name: restuarants[index].restuarantName,
-                        id: restuarants[index].id,
-                        leftPadding: 5.0,
+                      child: GestureDetector(
+                        onTap: () {
+                          restuarantData.selectRestaurant(
+                            restuarants[index].id,
+                          );
+                          Navigator.pushNamed(
+                            context,
+                            FillReservationDetailsScreen.routeName,
+                          );
+                        },
+                        child: Restaurant(
+                          rating:
+                              restuarants[index].restuarantRating.toString(),
+                          stars: restuarants[index].restuarantStars.toString(),
+                          distance: restuarants[index].restuarantDistance,
+                          image: restuarants[index].restuarantImageUrl,
+                          name: restuarants[index].restuarantName,
+                          id: restuarants[index].id,
+                          leftPadding: 5.0,
+                        ),
                       ),
                     );
                   },
